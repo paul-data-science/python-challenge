@@ -2,15 +2,15 @@
 """
 Created on Sun Aug 19 17:24:18 2018
 
-@author: Paul Aggarwal (github name: paulXLV)
+@author: Paul Ag (github name: paulXLV)
 """
 import csv
 
-# Create empty list
+# Create empty list for csv file
 polls=[]
-# Create empty dictionary
+# Create empty dictionary to record only candidate names
 dict_polls={}
-# Create empty dictionaty
+# Create empty dictionaty to summarize the total number votes per candidate name
 dict_summary={}
 # Open file and assign to csvfile object name
 with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfile:
@@ -18,7 +18,7 @@ with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfi
     pollreader=csv.reader(csvfile,delimiter=',')
     # Skip header row
     next(pollreader)
-    # Convert list object to a list 
+    # Convert list object to a readable list 
     for line in pollreader:
         polls.append(line)
     # Convert List into Dictionary for Grouping Names
