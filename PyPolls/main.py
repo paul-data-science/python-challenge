@@ -18,7 +18,7 @@ with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfi
     pollreader=csv.reader(csvfile,delimiter=',')
     # Skip header row
     next(pollreader)
-    # Convert list object to a readable list 
+    # Convert list object to a readable/printable list 
     for line in pollreader:
         polls.append(line)
     # Convert List into Dictionary for Grouping Names
