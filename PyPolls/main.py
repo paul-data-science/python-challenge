@@ -14,11 +14,11 @@ dict_polls={}
 dict_summary={}
 # Open file and assign to csvfile object name
 with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfile:
-    # read and split the data on commas
+    # read and split the data on commas assign to pollreader string variable
     pollreader=csv.reader(csvfile,delimiter=',')
     # Skip header row
     next(pollreader)
-    # Convert list object to a readable/printable list 
+    # Convert pollreader string to list 
     for line in pollreader:
         polls.append(line)
     # Convert List into Dictionary for Grouping Names
@@ -33,10 +33,9 @@ with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfi
     # Compute the percentages of each name key of dict_polls and insert into dict_summary
     total_polls=len(polls)
     for name in dict_polls:
-        dict_summary[name]=int((dict_polls[name]/total_polls)*100)
+        dict_summary[name]=round((dict_polls[name]/total_polls)*100)
         
     # Find larget value of the key/value pair inside dictionary and place the key name inside winner
-    # winner=[]
     # Initialize the highest value to comapre
     highest=0
     for name in dict_summary:
