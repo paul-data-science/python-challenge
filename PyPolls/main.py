@@ -21,18 +21,25 @@ with open(inputfile, newline='') as csvfile:
     # Skip header row
     next(pollreader)
     text_file=open(outputfile,"w")
+    # Output to text file
     text_file.write("Election Results")
-    print("Election Results") 
+    # Output to console
+    print("Election Results")
+    # Output to text file
     text_file.write("\n-------------------------")
+    # Output to console
     print("-------------------------") 
     # Convert pollreader string to list 
     for line in pollreader:
         polls.append(line)
-    # Convert List into Dictionary for Grouping Names
+    # Output to text file
     text_file.write("\nTotal Votes: "+str(len(polls)))
+    # Output to console
     print("Total Votes: "+str(len(polls)))
     text_file.write("\n-------------------------")
+    # Output to console
     print("-------------------------")
+    # Convert polls list into dictionary for counting and grouping candidate names
     for line in polls:
         name_key=line[2]
         if name_key not in dict_polls:
@@ -45,24 +52,35 @@ with open(inputfile, newline='') as csvfile:
     total_polls=len(polls)
     for name in dict_polls:
         dict_summary[name]=round((dict_polls[name]/total_polls)*100)
+        # Output to text file
         text_file.write("\n"+str(name)+": "+str(dict_summary[name])+"% "+"("+str(dict_polls[name])+")")
+        # Output to console
         print(str(name)+": "+str(dict_summary[name])+"% "+"("+str(dict_polls[name])+")")
         
-    # Find larget value of the key/value pair inside dictionary and place the key name inside winner
     # Initialize the highest value to comapre
     highest=0
+    # Find larget value of the key/value pair inside dictionary and place the key name inside winner
     for name in dict_summary:
         if highest < dict_summary[name]:
             highest=dict_summary[name]
             winner=name
+            
+    # Output to text file
     text_file.write("\n-------------------------")
+    # Output to console
     print("-------------------------")
+    # Output to text file
     text_file.write("\nWinner: "+winner)
+    # Output to console
     print("Winner: "+winner)
+    # Output to text file
     text_file.write("\n-------------------------")
+    # Output to console
     print("-------------------------")
     
+# Close text file
 text_file.close()
+
 '''
 Election Results
 -------------------------
