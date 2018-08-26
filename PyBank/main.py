@@ -62,20 +62,34 @@ Greatest Increase in Profits: Feb-2012 ($1926159)
 Greatest Decrease in Profits: Sep-2013 ($-2196167)
 '''
 text_file=open(outputfile,"w")
+# Output to text file
 text_file.write('Financial Analysis')
+# Output to console
 print('Financial Analysis')
+# Output to text file
 text_file.write('\n----------------------------')
+# Output to console
 print('----------------------------')
+# Output to text file
 text_file.write('\nTotal Months: '+str(total_months))
+# Output to console
 print('Total Months: '+str(total_months))
+# Output to text file
 text_file.write('\nTotal: $'+str(total))
+# Output to console
 print('Total: $'+str(total))
+# Output to text file
 text_file.write('\nAverage  Change: $'+str(round(Avg_MoM,2)))
+# Output to console
 print('Average  Change: $'+str(round(Avg_MoM,2)))
+# Output to text file
 text_file.write('\nGreatest Increase in Profits: '+max_month_yr+' ($'+str(max_increase)+')')
+# Output to console
 print('Greatest Increase in Profits: '+max_month_yr+' ($'+str(max_increase)+')')
+# Output to text file
 text_file.write('\nGreatest Decrease in Profits: '+min_month_yr+' ($'+str(max_decrease)+')')
+# Output to console
 print('Greatest Decrease in Profits: '+min_month_yr+' ($'+str(max_decrease)+')')
-
+# Close text file
 text_file.close()
 
