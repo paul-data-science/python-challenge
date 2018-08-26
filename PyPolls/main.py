@@ -95,20 +95,3 @@ O'Tooley: 3.000% (105630)
 Winner: Khan
 -------------------------
 '''
-
-
-
-
-
-
-
-
-
-
-#print(len(dict_polls))  
-# print(candidate)
-#print(dict_polls)
-#print(dict_summary)
-#print(winner)
-# sum of all grouped names match total number as checked on calc
-#print(max(zip(dict_summary.values(),dict_summary.keys())))
