@@ -36,6 +36,7 @@ with open(inputfile, newline='') as csvfile:
     text_file.write("\nTotal Votes: "+str(len(polls)))
     # Output to console
     print("Total Votes: "+str(len(polls)))
+    # Output to text file
     text_file.write("\n-------------------------")
     # Output to console
     print("-------------------------")
