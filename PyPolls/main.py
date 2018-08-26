@@ -6,6 +6,8 @@ Created on Sun Aug 19 17:24:18 2018
 """
 import csv
 
+inputfile='\\Users\\Paul-DS\\Downloads\\election_data.csv'
+outputfile='\\Users\\Paul-DS\\Downloads\\election_output.txt'
 # Create empty list for csv file
 polls=[]
 # Create empty dictionary to record only candidate names
@@ -13,15 +15,24 @@ dict_polls={}
 # Create empty dictionaty to summarize the total number votes per candidate name
 dict_summary={}
 # Open file and assign to csvfile object name
-with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfile:
+with open(inputfile, newline='') as csvfile:
     # read and split the data on commas assign to pollreader string variable
     pollreader=csv.reader(csvfile,delimiter=',')
     # Skip header row
     next(pollreader)
+    text_file=open(outputfile,"w")
+    text_file.write("Election Results")
+    print("Election Results") 
+    text_file.write("\n-------------------------")
+    print("-------------------------") 
     # Convert pollreader string to list 
     for line in pollreader:
         polls.append(line)
     # Convert List into Dictionary for Grouping Names
+    text_file.write("\nTotal Votes: "+str(len(polls)))
+    print("Total Votes: "+str(len(polls)))
+    text_file.write("\n-------------------------")
+    print("-------------------------")
     for line in polls:
         name_key=line[2]
         if name_key not in dict_polls:
@@ -34,6 +45,8 @@ with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfi
     total_polls=len(polls)
     for name in dict_polls:
         dict_summary[name]=round((dict_polls[name]/total_polls)*100)
+        text_file.write("\n"+str(name)+": "+str(dict_summary[name])+"% "+"("+str(dict_polls[name])+")")
+        print(str(name)+": "+str(dict_summary[name])+"% "+"("+str(dict_polls[name])+")")
         
     # Find larget value of the key/value pair inside dictionary and place the key name inside winner
     # Initialize the highest value to comapre
@@ -42,13 +55,41 @@ with open('\\Users\\Paul-DS\\Downloads\\election_data.csv', newline='') as csvfi
         if highest < dict_summary[name]:
             highest=dict_summary[name]
             winner=name
+    text_file.write("\n-------------------------")
+    print("-------------------------")
+    text_file.write("\nWinner: "+winner)
+    print("Winner: "+winner)
+    text_file.write("\n-------------------------")
+    print("-------------------------")
     
-        
-    
-print(len(polls))
+text_file.close()
+'''
+Election Results
+-------------------------
+Total Votes: 3521001
+-------------------------
+Khan: 63.000% (2218231)
+Correy: 20.000% (704200)
+Li: 14.000% (492940)
+O'Tooley: 3.000% (105630)
+-------------------------
+Winner: Khan
+-------------------------
+'''
+
+
+
+
+
+
+
+
+
+
+#print(len(dict_polls))  
 # print(candidate)
-print(dict_polls)
-print(dict_summary)
-print(winner)
+#print(dict_polls)
+#print(dict_summary)
+#print(winner)
 # sum of all grouped names match total number as checked on calc
 #print(max(zip(dict_summary.values(),dict_summary.keys())))
