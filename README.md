@@ -1,2 +1,2 @@
-# python-challenge
-Rutgers Data Science Unit 3 Assignment
+HW3 - PyPolls and PyBank
+![text]('PyPolls and PyBank output to console.png')
